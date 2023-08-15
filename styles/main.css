@@ -1,0 +1,856 @@
+:root {
+    /* Main Colors used */
+    --wht-color: #fafafa;
+    --blk-logo-color: #1d1d1b;
+    --pink-color: #ffb0b0;
+    --gray-color: #919191;
+
+    --blk-bg-color: #131313;
+    --grn-color: #B0FFC6;
+
+    /* FontFamilies Used */
+    --SG-font: 'Space Grotesk', sans-serif;
+    --WS-font: 'Work Sans', sans-serif;
+
+    /* Font Sizes: Responsive */
+    --fs-xs: 1.8rem;
+    --fs-s: 2.4rem;
+    --fs-reg: 3.2rem;
+    --fs-l: 6.4rem;
+    --fs-xl: 8.0rem;
+
+    /* Gap */
+    --gap: 2.4rem;
+
+}
+
+/* ======== HELPER ======== */
+.is-flex {
+    display: flex;
+    gap: var(--gap);
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-center-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:  repeat (12, 1fr);
+    gap:2.4rem;
+}
+
+
+.container {
+    margin: 0 auto;
+    /* max-width: 80rem; */
+    /* padding: 0 1rem; */
+}
+
+section {
+    margin: 0 3.2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap);
+}
+
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.seperator-reg{
+    border-bottom: var(--wht-color) solid 0.5rem;
+    width: 100%;
+}
+
+.seperator-sm{
+    border-bottom: var(--wht-color) solid 0.01rem;
+    width: 100%;
+}
+
+
+
+
+
+
+/* ======== GLOBAL ======== */
+/* ======== ===== ======== */
+* {
+    cursor: none;
+}
+html {
+    font-size: 10px;
+    height: 100%;
+    scroll-behavior: smooth;
+    cursor: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--wht-color);
+    font-family: var(--SG-font);
+    font-size: 2.4rem;
+    transition: color 0.5s ease;
+}
+
+a:hover {
+    color: var(--pink-color);
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blk-bg-color);
+    color: var(--wht-color);
+    font-size: 2.4em;
+    font-family: var(--WS-font);
+    overflow-x: hidden;
+
+}
+
+/* Border Tester */
+/* * {border: 1px red solid;} */
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, p, li, a { line-height: 1.2;}
+
+
+h1 { 
+    font-size: var(--fs-xl); 
+}
+h2 { 
+    font-size: var(--fs-l); 
+}
+
+
+.ff__sg {
+    font-family: var(--SG-font);
+}
+
+.fc__pink {
+    color: var(--pink-color);
+}
+
+/* ===BTNS & Chips === */
+.btn {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 3rem;
+    padding: 0.8rem 1.6rem;
+    background-color: var(--pink-color);
+    color: var(--blk-bg-color);
+  }
+
+  .btn::before {
+    /* content: url(../images/arrow-forward-sharp.svg); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 3s ease-in-out;
+    z-index: -1;
+    /* background-color: blue; */
+  }
+
+  .btn:hover::before {
+    opacity: 1;
+    width: 100%;
+  }
+
+  .btn:hover{
+    background-color: var(--blk-bg-color);
+    color: var(--wht-color);
+    outline: 0.1rem var(--wht-color) solid;
+
+  }
+
+  .btn a {
+    text-decoration: none;
+    color:var(--blk-bg-color);
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  .chip {
+    border: var(--gray-color) 0.1rem solid;
+    border-radius: 3rem;
+    padding: 0.8rem 1.6rem;
+    color: var(--gray-color);
+    font-size: var(--fs-xs);
+    font-family: var(--SG-font);
+    background: none;
+  }
+
+/* ======== Custom Cursor ======== */
+/* ======== ===== ======== */
+
+.inner-cursor{
+    position: fixed;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    background-color: var(--pink-color);
+    mix-blend-mode:difference;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: width 0.5s, height 0.5s;
+
+}
+
+.inner-cursor.grow {
+    left: 25px;
+    width: 45px;
+    height: 45px;
+    transition: width 0.3s, height 0.3s;
+    background-color: var(--wht-color);
+    /* transition: all 0.5s; */
+
+}
+
+.outer-cursor {
+    position: fixed;
+    left: 10px;
+    width: 35px;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--wht-color);
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: none;
+    /* transition: 0.1s; */
+}
+
+
+
+
+
+
+
+/* ======== HEADER ================================== */
+/* ======== ===== ================================== */
+.header__wrapper {
+    padding: 3rem;
+    justify-content: space-between;
+}
+
+.header__logo a div {
+   font-size: 1.6rem;
+}
+
+.h__svg {
+    width: 9.5rem;
+    height: auto;
+    padding-bottom: 0.8rem;
+}
+
+.header__links {
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 40%;
+}
+
+.header__links a {
+    padding: 0.8rem;
+}
+
+
+
+/* ======== Landing Page ================================== */
+/* ======== ===== ========================================= */
+
+/* ======== Hero Section1 ================== */
+/* ======== ===== ======================== */
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16rem;
+    height: 90vh;
+    display: flex;
+    /* padding: 8rem 3.2rem 20.1rem 3.2rem; */
+    align-items: center;
+}
+
+.hero__element {
+    /* position: absolute; */
+    font-size: var(--fs-xl);
+}
+
+.he__1{
+    
+    animation: appear 3s ease-in-out ;
+    animation-delay: 0s;
+}
+
+.hero__bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 10.9rem; */
+}
+
+
+
+.he__4{
+    animation: rotate 20s  infinite;
+    width: 25rem;
+    height: 25rem;
+    
+}
+
+@keyframes revolve {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0%   
+    }
+    to {
+        opacity: 100%
+    }
+}
+
+
+
+
+/* ======== Revolver Section ================== */
+/* ======== ===== ======================== */
+.revolver__section{
+    margin: 16rem 0;
+    /* margin-top: 20rem; */
+    
+    background-color: var(--wht-color);
+    position: relative;
+    overflow: hidden;
+    height: 24rem;
+    display: flex;
+    align-items: center;
+    
+}
+.revolver__container {
+    position: absolute;
+    color: var(--blk-bg-color);
+    font-size: var(--fs-xl);
+    display: inline-block;
+    white-space: nowrap;
+    animation: revolve 20s linear infinite;
+    margin: 16rem 0;
+    
+}
+/* ====== Animations ======================= */
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg);
+
+    }
+}
+
+@keyframes revolve {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+
+    }
+}
+
+
+
+/* ======== I Cann Assist Section ================== */
+/* ======== ===== ======================== */
+.assist__container{
+    padding-bottom: 16rem;
+}
+.assist__title{
+    font-size: var(--fs-l);
+    
+    grid-column:1 / span 5 ;
+}
+
+.assist__details{
+    grid-column:7 / span 6 ;
+    display: flex; 
+    flex-direction: column;
+}
+
+.assist__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+
+.item__number {
+    font-family: var(--SG-font);
+    color: var(--gray-color);
+}
+.item__name {
+    font-family: var(--WS-font);
+    font-size: var(--fs-l);
+    text-align: right;
+}
+
+
+
+
+
+
+
+/* ======== Works Section ================== */
+/* ======== ===== ======================== */
+
+.work__card{
+    grid-column: auto / span 6;
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    margin-bottom: 8rem;
+}
+.card__title{
+    font-size:var(--fs-l);
+}
+
+.card__labelandbtn{
+    justify-content: space-between;
+    width: 100%;
+    align-items:center;
+    padding: 0.2rem 0;
+}
+
+.label__name{
+    font-size: var(--fs-xs);
+    font-family: var(--SG-font);
+    color: var(--gray-color);
+    
+}
+
+.card__img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.card__img:hover {
+    /* transition: all 3s ease-in-out; */
+    transform: scale(1.01);
+    opacity: 0.8;
+}
+
+.card__labels{
+    flex-wrap: wrap;
+}
+
+
+
+/* ======== Footer ================================== */
+/* ======== ===== ================================== */
+footer {
+    margin-top: auto;
+    /* height: 7.45rem; */
+}
+
+.footer__wrapper {
+    font-size: var(--fs-l);
+    padding: 13.4rem 3rem 1.6rem;
+}
+
+.footer__wrapper a{
+    font-size: var(--fs-l);
+    color: var(--pink-color);
+}
+
+
+.footer__email, .footer__social {
+    opacity: 100%;
+}
+
+.footer__sp {
+    font-family: var(sg);
+    font-size: 2.4rem;
+    opacity: 100%;
+    text-transform: uppercase;
+
+}
+
+.fe__1{
+    grid-column: 1 / span 8;
+    padding-bottom: 8rem;
+    padding-top: 16rem;
+    color: var(--gray-color);
+}
+.fe__2{
+    grid-column: 1 / span 8;
+    grid-row: 2 / auto;
+    padding-bottom: 16rem;
+    color: var(--gray-color);
+}
+.fe__3{
+    grid-column: 10 / span 1 ;
+    grid-row: 2 / auto;
+
+}
+
+/* .btn__top a{
+    font-size: var(--fs-s);
+    color: var(--wht-color);
+} */
+
+.fe__4{
+    grid-column: 1 / span 6;
+    grid-row: 3 / auto;
+    font-size: var(--fs-xs);
+    color: var(--gray-color);
+    font-family: var(--SG-font);
+    
+
+}
+.fe__5{
+    grid-column: 7 / span 3;
+    grid-row: 3 / auto;
+
+}
+.fe__6{
+    grid-column: 7 / span 3;
+    grid-row: 3 / auto;
+    text-align: right;
+    font-size: var(--fs-xs);
+    color: var(--gray-color);
+    font-family: var(--SG-font);
+
+}
+
+.btn__top {
+    font-size: 2.4em;
+}
+
+.footer__wrapper a:hover {
+    opacity: 60%;
+}
+
+
+
+
+
+
+
+/* ======== ABOUT PAGE ================================== */
+/* ======== ===== ========================================= */
+.about__hero__container {
+    height: 90vmin;
+    width: 100%;
+    margin-bottom: 30rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__hero__title {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__hero__svg {
+    width: 7rem;
+    animation: rotate 20s linear infinite;
+}
+
+.a__h__text {
+    font-size: 6rem;
+}
+
+.a__h__name {
+    font-size: var(--fs-l);
+    /* font-size: 10rem; */
+}
+
+
+
+/* ====== About Me Text Section */
+
+.about__abtme__container{
+padding-bottom: 20rem;
+}
+
+.abtme__title {
+    grid-column: 5 / span 4;
+    grid-row: 1 / auto;
+    text-align: center;
+    padding-bottom: 10rem;
+
+}
+
+.abtme__info1{
+    grid-column: 2 / span 2;
+    grid-row: 2 / auto;
+
+}
+
+.abtme__info2{
+    grid-column: 5 / span 2;
+    grid-row: 2 / auto;
+
+}
+
+.abtme__img {
+    grid-column: 10 / span 3;
+    grid-row: 2 / auto;
+    min-height: rem;
+
+    background: url(../images/Me/michael_cheung_profile_img.jpg) no-repeat scroll center;
+    background-size: cover;
+    
+}
+
+
+.about__abtme2__container{
+    font-size: 6rem;
+    margin-bottom: 40rem; 
+}
+.abtme__info3{
+    grid-column: 1 / span 9;
+    grid-row: 1 / auto;
+    padding-bottom: 5rem;
+}
+
+.abtme__info4{
+    grid-column: 1 / span 9;
+    grid-row: 2 / auto;
+    padding-bottom: 5rem;
+
+
+}
+.abtme__info5{
+    grid-column: 5 / span 8;
+    grid-row: 3 / auto;
+    padding-bottom: 5rem;
+
+}
+
+.abtme__icons {
+    grid-column: 4 / span 1;
+    grid-row: 3 / auto;
+    position: relative;
+}
+
+.spin1{
+    width: 4rem;
+    height: auto;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    animation: rotate infinite 20s linear;
+
+}
+.spin2{
+    width: 5rem;
+    height: auto;
+    position: absolute;
+    bottom: -20rem;
+    left: -8rem;
+    animation: rotate infinite 20s linear;
+
+}
+.spin3{
+    width:  6rem;
+    height: auto;
+    position: absolute;
+    bottom: -40rem;
+    left: -12rem;
+    animation: rotate infinite 20s linear;
+}
+
+
+
+/* ======== Works Page ================================== */
+/* ======== ===== ========================================= */
+
+.other-hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16rem;
+    height: 60vh;
+    display: flex;
+    /* padding: 8rem 3.2rem 20.1rem 3.2rem; */
+    align-items: start;
+    justify-content: space-between;
+    padding-bottom: 20rem;
+} 
+
+.controls__wrap {
+    border-top: var(--wht-color) 0.1rem solid;
+    border-bottom: var(--wht-color) 0.1rem solid;
+    padding: 3.2rem 0;
+    justify-content: center;
+    margin-bottom: 12rem;
+}
+
+.controls__container {
+    /* flex-basis: 100%; */
+    justify-content: center;
+    align-items: center;
+}
+
+.controls__btn {
+    white-space: nowrap;
+
+}
+.controls__btn:hover {
+    background-color: var(--wht-color);
+    color: var(--blk-logo-color);
+    transition: all 0.5s ease-in-out;
+    
+}
+
+.controls__btn.active{
+    background-color: var(--wht-color);
+    color: var(--blk-logo-color);
+}
+
+
+
+
+/* ======== Artifact 3 UX Usability Testing Walmart ================================== */
+/* ======== ===== ========================================= */
+.artifact-specs__container{
+    width: 100%;
+    padding-top:  8rem;
+}
+
+.specs__heading {
+    grid-column: auto / span 6;
+    font-size: var(--fs-l);
+}
+
+.specs__list {
+    grid-column: auto / span 6;
+}
+
+.specs__label {
+    justify-content: space-between;
+    font-family: var(--SG-font);
+    padding: 0.8rem 0;
+
+}
+
+.specs__number{
+    font-family: var(--SG-font);
+    color: var(--gray-color);
+}
+
+
+.text__container{
+    padding-top: 16rem;
+    padding-right: 16rem;
+    /* width: 80%; */
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    align-items: baseline;
+    text-align: left;
+    
+}
+.artifact__subheader{
+    font-size:var(--fs-l);
+    
+}
+
+.artifact__paragraph{
+    font-size: var(--fs-reg);
+    line-height: 4rem;
+}
+
+.artifact__list {
+    padding: 1.6rem 0;
+    padding-left: 3.2rem ;
+}
+ 
+.artifact__image-sm{
+    width: 100%;
+}
+/* .card__img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.card__img:hover {
+    /* transition: all 3s ease-in-out; 
+    transform: scale(1.01);
+    opacity: 0.8;
+}*/
+
+
+
+/* ======== Media Query ============================== */
+/* ======== =========== ============================== */
+    /* Mobile */
+@media screen and (max-width: 767px){}
+
+    /* Tablet */
+@media screen and (max-width: 1023px){
+
+/* ======== Works Page ================================== */
+/* ======== ===== ========================================= */
+
+.controls__container {
+    flex-basis: 100%;
+}
+
+
+
+
+
+
+
+}
+
+    /* Desktop */
+/* @media screen and (max-width: 1199px){} */
+
+    /* Lrg Desktop */
+/* @media screen and (max-width:No limit? ;){} */
